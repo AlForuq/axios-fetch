@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Fetch } from "./components/fetch";
 import { Axios } from "./components/axios";
+// eslint-disable-next-line
 import axios from "axios";
 
 const App = () => {
