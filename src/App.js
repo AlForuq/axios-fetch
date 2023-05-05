@@ -5,10 +5,19 @@ import { Axios } from "./components/axios";
 import axios from "axios";
 
 const App = () => {
+  axios.interceptors.request.use((request) => {
+    // console.log(request, "request");
+    request.headers.Authorization = "Bearer Web";
+    return request;
+  });
   // axios.interceptors.request.use((request) => {
   //   // console.log(request, "request");
-  //   // request.headers.Authorization = "Bearer Web";
-  //   return request;
+  //   return {
+  //     ...request,
+  //     headers: {
+  //       Authorization: "Bearer Webb ",
+  //     },
+  //   };
   // });
 
   // axios.interceptors.response.use((response) => {

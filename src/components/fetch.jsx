@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 
 export const Fetch = () => {
-  const signal = new AbortController();
   useEffect(() => {
+    let controller = new AbortController();
+    setTimeout(() => {
+      return controller.abort();
+    }, 2000);
+
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       headers: {
@@ -11,21 +15,16 @@ export const Fetch = () => {
       },
       /* not working if entered "body" with GET method
       because body will work with POST method */
-      body: JSON.stringify({ name: "Alisa" }),
-      //   signal,
+      body: JSON.stringify({ name: "Alisa Fetch" }),
     })
       .then((res) => {
         // console.log(res, "fetch before json");
         return res.json();
       })
       .then((res) => {
-        // console.log(res, "fetch after json");
+        console.log(res, "fetch after json");
       });
   }, []);
-
-  setTimeout(() => {
-    return signal.abort();
-  }, 2000);
 
   return (
     <div style={{ flex: 1 }}>

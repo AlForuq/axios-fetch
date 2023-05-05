@@ -2,16 +2,16 @@ import axios from "axios";
 import React, { useEffect } from "react";
 
 export const Axios = () => {
-  /* Not understood: i cant get the freaking payload from here */
+  /* Not understood: i cant get the freaking payload from here with body. Instead used data*/
   useEffect(() => {
     axios({
-      method: "GET",
+      method: "POST",
       url: "https://jsonplaceholder.typicode.com/users",
-      // headers: {Authorization: 'Str'},
-      body: { name: "Alisa" }, // no need for JSON.stringify
+      headers: {Authorization: 'Str'},
+      data: { name: "Alisa Axios" }, // no need for JSON.stringify
       timeout: 2000,
     }).then((res) => {
-      // console.log(res, "axios");
+      console.log(res.data, "axios");
     });
   }, []);
 
